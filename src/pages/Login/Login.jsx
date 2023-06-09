@@ -19,9 +19,8 @@ export default function Login() {
             const now = JSON.parse(localStorage.getItem("cred"));
             setCreds(now);
             console.log(now)
-            console.log('creeds 2, ainda não assistiu pô');
+            console.log('creeds 2, ainda não assisti pô');
             login(now);
-            alert('Você já está logado, redirecionando');
             if (now.mermbership === null) {
                 navigate('/subscriptions');
             } else {
@@ -62,7 +61,11 @@ export default function Login() {
                 const credenciaisSerializadas = JSON.stringify(resp.data);
                 localStorage.setItem("cred", credenciaisSerializadas);
                 login(resp.data);
-                alert('Acaba de logar e salvar credenciais');
+                if (resp.data.mermbership === null) {
+                    navigate('/subscriptions');
+                } else {
+                    navigate('/home');
+                }
             })
             .catch((er) => {
                 console.log(er);
