@@ -62,7 +62,7 @@ export default function Singup() {
 
     return (
         <Sing>
-            <h1>Singup</h1>
+            <h1>Sign-up</h1>
             <Campos>
                 <form>
                     <input placeholder="nome" value={nome} onChange={() => handleSet(event, setNome)} type="text" /> 
